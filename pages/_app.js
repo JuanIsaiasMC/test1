@@ -7,7 +7,6 @@ import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return <Provider store={store}>
-    <header>XCARET</header>
     <Component {...pageProps} />
   </Provider>
 }

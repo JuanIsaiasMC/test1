@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterSlice from "./slices/counter.slice";
+import languageSlice from "./slices/language.slice";
+
+import navbarSlice from "./slices/navbar.slice";
 
 
 export const store = configureStore({
     reducer: {
-        counter: counterSlice
+        navbar: navbarSlice,
+        language: languageSlice
 
     }
 })
