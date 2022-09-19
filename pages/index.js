@@ -54,8 +54,7 @@ export default function Home() {
       <div className={styles.products__container}>
 
         <Products navText={navText} idioma={idioma} />
-        <Products navText={navText} idioma={idioma} />
-        <Products navText={navText} idioma={idioma} />
+
       </div>
 
     </div>

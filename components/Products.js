@@ -1,8 +1,8 @@
 import { useState } from "react"
 import styles from '../styles/Products.module.css'
 import Image from "next/image"
-import xArte from '../public/images/xarte.png'
-import xMexico from '../public/images/xmexico.png'
+
+
 
 
 export default function Products({ navText, idioma }) {
@@ -37,7 +37,7 @@ export default function Products({ navText, idioma }) {
                 <div className={styles.promo__container}>
                     {navText[`${idioma}`]?.promotions.map(item => (
                         <div>
-                            <Image width={30} height={10} layout='responsive' objectFit="contain" className={styles.img__promo} src={xArte} alt="logoPromo" />
+                            <img width={30} height={10} layout='responsive' objectFit="contain" className={styles.img__promo} src={item.logoPromo} alt="logoPromo" />
                             <h2>{item.title}</h2>
                             <h3>{item.subtitle}</h3>
                             <p>{item.paragraphs}</p>
