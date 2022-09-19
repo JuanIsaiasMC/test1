@@ -17,3 +17,7 @@
 .logo {
     width: 40%;
 }
+
+.products__container {
+    background-color: rebeccapurple;
+}

@@ -1,21 +1,51 @@
-export default function Products({ promotion, navText, idioma }) {
+import { useState } from "react"
+import styles from '../styles/Products.module.css'
+import Image from "next/image"
+import xArte from '../public/images/xarte.png'
+import xMexico from '../public/images/xmexico.png'
+
+
+export default function Products({ navText, idioma }) {
+    const [currentImg, setCurrentImg] = useState(0)
+    const imgLength = navText?.[`${idioma}`]?.carousel?.mobile.length
+
+    const nextImg = () => {
+        setCurrentImg(currentImg === imgLength - 1 ? 0 : currentImg + 1)
+    }
+
+    const prevImg = () => {
+        setCurrentImg(currentImg === 0 ? imgLength - 1 : currentImg - 1)
+    }
+
     return (
-        <section>
-            <figure>
-                <h3>{navText?.[`${idioma}`].carousel?.text}</h3>
-                {navText?.[`${idioma}`].carousel?.mobile.map(item => (
-                    <img key={item.alt} src={item.src} alt={item.alt} />
-                ))}
+        <section className={styles.section}>
+            <figure className={styles.figure__container}>
+                {navText?.[`${idioma}`]?.carousel?.mobile.map((item, index) => {
+                    return (<div>{
+                        index === currentImg && (
+                            < img className={styles.img__slide} key={item.alt} src={item.src} alt={item.alt} />
+                        )
+                    }
+                    </div>
+                    )
+                })}
+                <div className={styles.buttons__container}>
+                    <button onClick={prevImg}>prev</button>
+                    <button onClick={nextImg}>next</button>
+                </div>
+
+                <div className={styles.promo__container}>
+                    {navText[`${idioma}`]?.promotions.map(item => (
+                        <div>
+                            <Image width={30} height={10} layout='responsive' objectFit="contain" className={styles.img__promo} src={xArte} alt="logoPromo" />
+                            <h2>{item.title}</h2>
+                            <h3>{item.subtitle}</h3>
+                            <p>{item.paragraphs}</p>
+                            <button>{item.button.text}</button>
+                        </div>
+                    ))}
+                </div>
             </figure>
-            <article>
-
-
-                <img src={promotion.logoPromo} alt="prmotion logo" />
-                <h2>{promotion.title}</h2>
-                <h3>{promotion.Subtitle}</h3>
-                <p>{promotion.paragraphs}</p>
-                <button>{promotion.button.text}</button>
-            </article>
         </section>
     )
 }

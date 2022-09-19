@@ -6,9 +6,6 @@ import { useState, useEffect } from 'react'
 import { getNavbarData } from '../store/slices/navbar.slice'
 import { setLanguage } from '../store/slices/language.slice'
 import Products from '../components/Products'
-import imagen from '../public/hotel-xcaret.png'
-
-
 
 
 export default function Home() {
@@ -27,6 +24,8 @@ export default function Home() {
     dispatch(setLanguage(idioma))
   }
 
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -36,7 +35,6 @@ export default function Home() {
       </Head>
 
       <nav className={styles.nav}>
-        <img src={imagen} alt="" />
         <img className={styles.logo} src={navText?.[`${idioma}`]?.navbar.logo} alt="logo" />
         <div className={styles.text__container}>
 
@@ -53,11 +51,12 @@ export default function Home() {
         </div>
       </nav>
       <WebContent navText={navText} idioma={idioma} />
-      {navText?.[`${idioma}`]?.promotions.map((promotion, index) => (
+      <div className={styles.products__container}>
 
-        <Products key={index} promotion={promotion} navText={navText} idioma={idioma} />
-
-      ))}
+        <Products navText={navText} idioma={idioma} />
+        <Products navText={navText} idioma={idioma} />
+        <Products navText={navText} idioma={idioma} />
+      </div>
 
     </div>
   )

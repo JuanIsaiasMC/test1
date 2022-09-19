@@ -1,0 +1,37 @@
+.section {
+    background-color: aquamarine;
+    height: 100vh;
+    margin-top: 10rem;
+}
+
+.figure__container {
+    position: relative;
+}
+
+.img__slide {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+}
+
+.buttons__container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 45%;
+    z-index: 1;
+}
+
+.promo__container {
+    position: absolute;
+    display: block;
+    text-align: center;
+    z-index: 1;
+    top: 70%;
+    display: block;
+    width: 100%;
+    height: 100px;
+
+
+}
