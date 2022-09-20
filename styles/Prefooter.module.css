@@ -1,0 +1,56 @@
+.prefooter__container {
+    background-color: rgb(25%, 25%, 25%);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+.prefooter__icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    column-gap: .5rem;
+}
+
+.icon {
+    font-size: 1.2rem;
+    color: rgb(250, 250, 250);
+
+}
+
+.prefooter__texts {
+    color: rgb(250, 250, 250);
+}
+
+.contact__title {
+    font-size: .8rem;
+}
+
+.contact__email {
+    font-size: .8rem;
+    color: rgb(74%, 74%, 74%);
+}
+
+.numbers__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: .5rem;
+    color: rgb(74%, 74%, 74%);
+}
+
+.number__container {
+
+    display: flex;
+    flex-direction: column;
+    font-size: .7rem;
+}
+
+.numbers__select {
+    background-color: rgb(25%, 25%, 25%);
+    color: rgb(74%, 74%, 74%);
+    cursor: pointer;
+    border: none;
+}

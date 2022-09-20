@@ -1,37 +1,58 @@
 .section {
-    background-color: aquamarine;
-    height: 100vh;
-    margin-top: 10rem;
+    width: 100%;
+    padding: 0 1.5rem;
+
 }
 
+/* paddin lados 1.5rem */
 .figure__container {
     position: relative;
 }
 
 .img__slide {
     width: 100%;
-    height: 70vh;
+    height: 50vh;
     object-fit: cover;
+    display: block;
 }
 
 .buttons__container {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    right: 2%;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    right: 0;
-    top: 45%;
-    z-index: 1;
+    row-gap: .5rem;
+}
+
+.button__slide {
+    background-color: inherit;
+    border: none;
+}
+
+.icon__slide {
+    font-size: 1.8rem;
+
 }
 
 .promo__container {
-    position: absolute;
-    display: block;
-    text-align: center;
-    z-index: 1;
-    top: 70%;
-    display: block;
-    width: 100%;
-    height: 100px;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding: 1.5rem; */
+    row-gap: 1rem;
+    text-align: justify;
+}
 
+.button__product {
+    background-color: inherit;
+    width: 90%;
+    padding: .5rem;
+    font-family: lora;
+    font-size: 1rem;
+    border-radius: .5rem;
+    margin-top: 1rem;
 }
