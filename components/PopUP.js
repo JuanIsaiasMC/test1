@@ -18,7 +18,7 @@ export default function PopUp({ setIsopen }) {
             <span className={styles.popup__span}>{reserva}</span>
             <Link href='/thankYou'>
 
-                <button onClick={() => setIsopen(false)} >continue</button>
+                <button className={styles.popup__button} onClick={() => setIsopen(false)} >continue</button>
             </Link>
         </div>
     )

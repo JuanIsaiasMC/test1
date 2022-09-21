@@ -2,11 +2,15 @@ import { useState } from "react"
 import styles from '../styles/Products.module.css'
 import Image from "next/image"
 import PopUp from "./PopUP"
+import { useSelector } from "react-redux"
 
-export default function Products({ navText, idioma }) {
+export default function Products({ imgLogo, hotel }) {
     const [isOpen, setIsopen] = useState(false)
     const [currentImg, setCurrentImg] = useState(0)
-    const imgLength = navText?.[`${idioma}`]?.carousel?.mobile.length
+
+    const navText = useSelector(state => state.navbar)
+    const language = useSelector(state => state.language)
+    const imgLength = navText?.[`${language}`]?.carousel?.mobile.length
 
     const nextImg = () => {
         setCurrentImg(currentImg === imgLength - 1 ? 0 : currentImg + 1)
@@ -19,9 +23,9 @@ export default function Products({ navText, idioma }) {
     return (
         <div className={styles.section}>
             <figure className={styles.figure__container}>
-                {navText?.[`${idioma}`]?.carousel?.mobile.map((item, index) => {
+                {navText?.[`${language}`]?.carousel?.mobile.map((item, index) => {
                     return (
-                        <div className={styles.test}>{
+                        <div className={styles.slide__container}>{
                             index === currentImg && (
                                 < img className={styles.img__slide} key={item.alt} src={item.src} alt={item.alt} />
                             )
@@ -35,18 +39,23 @@ export default function Products({ navText, idioma }) {
                 </div>
             </figure >
 
-            {/* <div className={styles.promo__container}> */}
-            {navText[`${idioma}`]?.promotions.map(item => (
-                <div className={styles.promo__container}>
-                    <Image width={100} height={150} className={styles.img__promo} src='/xarte.png' alt="logoPromo" />
-                    <h2>{item.title}</h2>
-                    <h3>{item.Subtitle}</h3>
-                    <p>{item.paragraphs}</p>
-                    <button className={styles.button__product} onClick={() => setIsopen(true)}>{item.button.text}</button>
-                </div>
-            ))}
-            {/* </div> */}
-            {isOpen ? <PopUp setIsopen={setIsopen} /> : ''}
+            <div className={styles.promo__info}>
+                {
+                    navText[`${language}`]?.promotions.map(item => (
+                        <div className={styles.promo__container}>
+                            <figure className={styles.logo}>
+                                <Image width={100} height={150} className={styles.img__promo} src={imgLogo} alt="logoPromo" />
+                            </figure>
+                            <h2>{hotel}</h2>
+                            <h3>{item.Subtitle}</h3>
+                            <p>{item.paragraphs}</p>
+                            <button className={styles.button__product} onClick={() => setIsopen(true)}>{item.button.text}</button>
+                            {isOpen ? <PopUp setIsopen={setIsopen} /> : ''}
+                        </div>
+                    ))
+                }
+            </div>
+            {/* {isOpen ? <PopUp setIsopen={setIsopen} /> : ''} */}
         </div >
     )
 }

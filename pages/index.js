@@ -1,10 +1,13 @@
 import Head from 'next/head'
 import styles from '../styles/NavBar.module.css'
-import WebContent from '../components/WebContent'
-import { useSelector, useDispatch } from 'react-redux'
-import { useState, useEffect } from 'react'
+import xArte from '../public/xArte.png'
+import xMexico from '../public/xMexico.png'
+import xPlaya from '../public/xPlaya.png'
+import { useEffect } from 'react'
 import { getNavbarData } from '../store/slices/navbar.slice'
 import { setLanguage } from '../store/slices/language.slice'
+import { useSelector, useDispatch } from 'react-redux'
+import WebContent from '../components/WebContent'
 import Products from '../components/Products'
 import Legals from '../components/Legals'
 import Prefooter from '../components/Prefooter'
@@ -12,8 +15,12 @@ import Footer from '../components/Footer'
 
 
 export default function Home() {
-  const [idioma, setIdioma] = useState('es')
+
+
   const navText = useSelector(state => state.navbar)
+  const language = useSelector(state => state.language)
+
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -28,13 +35,13 @@ export default function Home() {
   // }
 
   const english = () => {
-    setIdioma('en')
-    dispatch(setLanguage(idioma))
+    // setIdioma('en')
+    dispatch(setLanguage('en'))
   }
 
   const spanish = () => {
-    setIdioma('es')
-    dispatch(setLanguage(idioma))
+    dispatch(setLanguage('es'))
+    // setIdioma('es')
   }
 
 
@@ -50,10 +57,10 @@ export default function Home() {
       <header>
 
         <nav className={styles.nav}>
-          <img className={styles.logo} src={navText?.[`${idioma}`]?.navbar.logo} alt="logo" />
+          <img className={styles.logo} src={navText?.[`${language}`]?.navbar.logo} alt="logo" />
           <div className={styles.text__container}>
 
-            <p>{navText?.[`${idioma}`]?.navbar.menu.contact}</p>
+            <p>{navText?.[`${language}`]?.navbar.menu.contact}</p>
             {/* <select name="lan" onChange={(e) => updateLanguage(e)}>
             <option value='es'>es</option>
             <option value='en'>en</option>
@@ -64,18 +71,23 @@ export default function Home() {
               <span className={styles.language} onClick={spanish}>es</span>
             </div>
             <select className={styles.select__nav} name="currency" >
-              {navText?.[`${idioma}`]?.navbar.menu.currency.map(curr => (
+              {navText?.[`${language}`]?.navbar.menu.currency.map(curr => (
                 <option key={curr} value={curr}>{curr}</option>
               ))}
             </select>
           </div>
         </nav>
       </header>
-      <WebContent navText={navText} idioma={idioma} />
-      <Products navText={navText} idioma={idioma} />
-      <Legals navText={navText} idioma={idioma} />
-      <Prefooter navText={navText} idioma={idioma} />
-      <Footer navText={navText} idioma={idioma} />
+      <WebContent />
+
+
+      <Products hotel={'HOTEL XCARET ARTE'} imgLogo={xArte} />
+      <Products hotel={'HOTEL XCARET MEXICO'} imgLogo={xMexico} />
+      <Products hotel={'LA CASA DE LA PLAYA'} imgLogo={xPlaya} />
+
+      <Legals />
+      <Prefooter />
+      <Footer />
     </div>
   )
 }

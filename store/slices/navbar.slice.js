@@ -11,7 +11,7 @@ export const navbarSlice = createSlice({
     }
 })
 
-export const getNavbarData = (en) => (dispatch) => {
+export const getNavbarData = () => (dispatch) => {
     // dispatch(setIsLoading(true));
     return axios.get('https://raw.githubusercontent.com/javialcocer/test-json/main/data.json')
         .then((res) => dispatch(setNavbar(res.data)))

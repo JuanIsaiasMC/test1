@@ -1,5 +1,8 @@
+import { useSelector } from 'react-redux'
 import styles from '../styles/Prefooter.module.css'
-export default function Prefooter({ navText, idioma }) {
+export default function Prefooter() {
+    const navText = useSelector(state => state.navbar)
+    const language = useSelector(state => state.language)
     return (
         <section className={styles.prefooter__container}>
             <article
@@ -9,29 +12,29 @@ export default function Prefooter({ navText, idioma }) {
                 <i className={`fa-brands fa-instagram ${styles.icon}`}></i>
             </article>
             <article className={styles.prefooter__texts}>
-                <h3 className={styles.contact__title}>{navText[`${idioma}`]?.prefooter.contactCenter.title}</h3>
-                <p className={styles.contact__email}>{navText[`${idioma}`]?.prefooter.contactCenter.email}</p>
+                <h3 className={styles.contact__title}>{navText[`${language}`]?.prefooter.contactCenter.title}</h3>
+                <p className={styles.contact__email}>{navText[`${language}`]?.prefooter.contactCenter.email}</p>
             </article>
             <article className={styles.numbers__container}>
                 <div className={styles.number__container}>
                     <span>
-                        {navText[`${idioma}`]?.prefooter.numbers[0].name}
+                        {navText[`${language}`]?.prefooter.numbers[0].name}
                     </span>
                     <span>
-                        {navText[`${idioma}`]?.prefooter.numbers[0].number}
+                        {navText[`${language}`]?.prefooter.numbers[0].number}
                     </span>
                 </div>
                 <div className={styles.number__container}>
                     <span>
-                        {navText[`${idioma}`]?.prefooter.numbers[1].name}
+                        {navText[`${language}`]?.prefooter.numbers[1].name}
                     </span>
                     <span>
-                        {navText[`${idioma}`]?.prefooter.numbers[1].number}
+                        {navText[`${language}`]?.prefooter.numbers[1].number}
                     </span>
                 </div>
                 <div>
                     <select name="resto del mundo" className={styles.numbers__select}>
-                        {navText[`${idioma}`]?.prefooter.numbers.slice(2).map(item => (
+                        {navText[`${language}`]?.prefooter.numbers.slice(2).map(item => (
                             <option value="">{item.name}
                                 {item.number}</option>
                         ))}
