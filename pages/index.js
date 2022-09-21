@@ -35,13 +35,13 @@ export default function Home() {
   // }
 
   const english = () => {
-    // setIdioma('en')
+
     dispatch(setLanguage('en'))
   }
 
   const spanish = () => {
     dispatch(setLanguage('es'))
-    // setIdioma('es')
+
   }
 
 
