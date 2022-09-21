@@ -41,8 +41,8 @@ export default function Products({ imgLogo, hotel }) {
 
             <div className={styles.promo__info}>
                 {
-                    navText[`${language}`]?.promotions.map(item => (
-                        <div className={styles.promo__container}>
+                    navText[`${language}`]?.promotions.map((item, index) => (
+                        <div key={index} className={styles.promo__container}>
                             <figure className={styles.logo}>
                                 <Image width={100} height={150} className={styles.img__promo} src={imgLogo} alt="logoPromo" />
                             </figure>

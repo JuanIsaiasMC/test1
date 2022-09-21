@@ -13,7 +13,7 @@ export default function Footer() {
             </div>
             <div className={styles.privacity__container}>
                 {navText?.[`${language}`]?.footer.links.map(item => (
-                    <span className={styles.footer__span}>{item.tittle}</span>
+                    <span key={item.tittle} className={styles.footer__span}>{item.tittle}</span>
                 ))}
             </div>
         </footer>

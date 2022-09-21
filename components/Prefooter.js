@@ -35,7 +35,7 @@ export default function Prefooter() {
                 <div>
                     <select name="resto del mundo" className={styles.numbers__select}>
                         {navText[`${language}`]?.prefooter.numbers.slice(2).map(item => (
-                            <option value="">{item.name}
+                            <option key={item.name} value={item.name}>{item.name}
                                 {item.number}</option>
                         ))}
                     </select>

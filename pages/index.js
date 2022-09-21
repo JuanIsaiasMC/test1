@@ -27,6 +27,8 @@ export default function Home() {
     dispatch(getNavbarData())
   }, [])
 
+
+
   // const updateLanguage = (e) => {
   //   e.preventDefault()
   //   dispatch(setLanguage(idioma))
