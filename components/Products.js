@@ -25,7 +25,7 @@ export default function Products({ imgLogo, hotel }) {
             <figure className={styles.figure__container}>
                 {navText?.[`${language}`]?.carousel?.mobile.map((item, index) => {
                     return (
-                        <div className={styles.slide__container}>{
+                        <div key={item.alt} className={styles.slide__container}>{
                             index === currentImg && (
                                 < img className={styles.img__slide} key={item.alt} src={item.src} alt={item.alt} />
                             )
